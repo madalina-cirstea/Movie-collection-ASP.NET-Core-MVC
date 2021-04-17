@@ -26,12 +26,18 @@ namespace MvcMovie.Controllers
         }*/
 
         // GET: Movies
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Title_desc" : "";
             ViewData["ReleaseDateSortParm"] = sortOrder == "ReleaseDate" ? "ReleaseDate_desc" : "ReleaseDate";
+            ViewData["CurrentFilter"] = searchString;
 
             IQueryable<Movie> movies = from m in _context.Movie select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(m => m.Title.Contains(searchString));
+            }
 
             movies = sortOrder switch
             {
