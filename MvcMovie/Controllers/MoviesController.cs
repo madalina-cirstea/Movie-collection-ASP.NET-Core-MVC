@@ -26,10 +26,25 @@ namespace MvcMovie.Controllers
         }*/
 
         // GET: Movies
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(
+            string sortOrder,
+            string currentFilter,
+            string searchString,
+            int? pageNumber)
         {
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Title_desc" : "";
             ViewData["ReleaseDateSortParm"] = sortOrder == "ReleaseDate" ? "ReleaseDate_desc" : "ReleaseDate";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             ViewData["CurrentFilter"] = searchString;
 
             IQueryable<Movie> movies = from m in _context.Movie select m;
@@ -47,7 +62,8 @@ namespace MvcMovie.Controllers
                 _ => movies.OrderBy(s => s.Title),
             };
 
-            return View(await movies.AsNoTracking().ToListAsync());
+            int pageSize = 3;
+            return View(await PaginatedList<Movie>.CreateAsync(movies.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Movies/Details/5
