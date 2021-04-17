@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
+using X.PagedList;
 
 namespace MvcMovie.Controllers
 {
@@ -26,15 +25,11 @@ namespace MvcMovie.Controllers
         }*/
 
         // GET: Movies
-        public async Task<IActionResult> Index(
-            string sortOrder,
-            string currentFilter,
-            string searchString,
-            int? pageNumber)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            ViewData["CurrentSort"] = sortOrder;
-            ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Title_desc" : "";
-            ViewData["ReleaseDateSortParm"] = sortOrder == "ReleaseDate" ? "ReleaseDate_desc" : "ReleaseDate";
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "Title_desc" : "";
+            ViewBag.ReleaseDateSortParm = sortOrder == "ReleaseDate" ? "ReleaseDate_desc" : "ReleaseDate";
 
             if (searchString != null)
             {
@@ -45,7 +40,7 @@ namespace MvcMovie.Controllers
                 searchString = currentFilter;
             }
 
-            ViewData["CurrentFilter"] = searchString;
+            ViewBag.CurrentFilter = searchString;
 
             IQueryable<Movie> movies = from m in _context.Movie select m;
 
@@ -63,7 +58,8 @@ namespace MvcMovie.Controllers
             };
 
             int pageSize = 3;
-            return View(await PaginatedList<Movie>.CreateAsync(movies.AsNoTracking(), pageNumber ?? 1, pageSize));
+            pageNumber ??= 1;
+            return View(movies.ToPagedList((int)pageNumber, pageSize));
         }
 
         // GET: Movies/Details/5
