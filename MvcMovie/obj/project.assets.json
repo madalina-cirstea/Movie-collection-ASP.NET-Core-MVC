@@ -10051,11 +10051,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\madal\\OneDrive\\Desktop\\roweb\\Movie-collection-ASP.NET-Core-MVC\\MvcMovie\\MvcMovie.csproj",
+      "projectUniqueName": "C:\\Users\\madal\\OneDrive\\Desktop\\aici\\Movie-collection-ASP.NET-Core-MVC\\MvcMovie\\MvcMovie.csproj",
       "projectName": "MvcMovie",
-      "projectPath": "C:\\Users\\madal\\OneDrive\\Desktop\\roweb\\Movie-collection-ASP.NET-Core-MVC\\MvcMovie\\MvcMovie.csproj",
+      "projectPath": "C:\\Users\\madal\\OneDrive\\Desktop\\aici\\Movie-collection-ASP.NET-Core-MVC\\MvcMovie\\MvcMovie.csproj",
       "packagesPath": "C:\\Users\\madal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\madal\\OneDrive\\Desktop\\roweb\\Movie-collection-ASP.NET-Core-MVC\\MvcMovie\\obj\\",
+      "outputPath": "C:\\Users\\madal\\OneDrive\\Desktop\\aici\\Movie-collection-ASP.NET-Core-MVC\\MvcMovie\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\madal\\AppData\\Roaming\\NuGet\\NuGet.Config",

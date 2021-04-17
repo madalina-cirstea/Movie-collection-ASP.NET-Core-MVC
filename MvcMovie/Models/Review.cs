@@ -18,5 +18,7 @@ namespace MvcMovie.Models
         [Display(Name = "Review date")]
         [DataType(DataType.Date)]
         public DateTime ReviewDate { get; set; }
+
+        public int MovieId { get; set; }
     }
 }

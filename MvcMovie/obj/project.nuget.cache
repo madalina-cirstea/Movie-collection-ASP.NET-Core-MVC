@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aVromCBeAp39xzmTb9nXcHqglUSec3OFtnzL1f6FpldCvGHjG4YhRImAjIGKg0rRxNtclSq+737Wu5Sv6rDiDA==",
+  "dgSpecHash": "TncULHnjNXhzqpds9DAHPMwypxA0tqJ2tZCHyfn9kE1AOGTTuzYnxHMKopo2/JjAT++npF2Qu3BdyvuLcYi9hg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\madal\\OneDrive\\Desktop\\roweb\\Movie-collection-ASP.NET-Core-MVC\\MvcMovie\\MvcMovie.csproj",
+  "projectFilePath": "C:\\Users\\madal\\OneDrive\\Desktop\\aici\\Movie-collection-ASP.NET-Core-MVC\\MvcMovie\\MvcMovie.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\madal\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\madal\\.nuget\\packages\\microsoft.aspnet.mvc\\4.0.20505\\microsoft.aspnet.mvc.4.0.20505.nupkg.sha512",

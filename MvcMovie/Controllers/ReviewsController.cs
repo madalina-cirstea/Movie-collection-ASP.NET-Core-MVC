@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -61,6 +62,30 @@ namespace MvcMovie.Controllers
                 _context.Add(review);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            return View(review);
+        }
+
+        // GET: Reviews/AddMovieReview
+        public IActionResult AddMovieReview(int movieId)
+        {
+            Review review = new Review();
+            review.MovieId = movieId;
+            review.ReviewDate = DateTime.Now;
+
+            return View(review);
+        }
+
+        // POST: Reviews/AddMovieReview
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddMovieReview(Review review)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(review);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details", "Movies", new { id = review.MovieId });
             }
             return View(review);
         }

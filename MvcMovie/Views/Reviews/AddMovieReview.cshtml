@@ -1,0 +1,29 @@
+﻿@model MvcMovie.Models.Review
+
+@{
+    ViewData["Title"] = "Add Movie Review";
+}
+
+<h1>Add Movie Review</h1>
+
+@using (Html.BeginForm(actionName: "AddMovieReview", controllerName: "Reviews", method: FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)
+
+    @Html.LabelFor(m => m.Name, "Name:")
+    <br />
+    @Html.TextBoxFor(m => m.Name, null, new { placeholder = "Your name", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.LabelFor(m => m.Content, "Review:")
+    <br />
+    @Html.TextBoxFor(m => m.Content, null, new { placeholder = "Write your review here!", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.HiddenFor(m => m.ReviewDate)
+    @Html.HiddenFor(m => m.MovieId)
+
+    <button class="btn btn-primary" type="submit">Send review</button>
+}

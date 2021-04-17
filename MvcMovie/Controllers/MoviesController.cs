@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
+using MvcMovie.Models.ViewModels;
 using X.PagedList;
 
 namespace MvcMovie.Controllers
@@ -39,6 +41,7 @@ namespace MvcMovie.Controllers
             {
                 searchString = currentFilter;
             }
+
 
             ViewBag.CurrentFilter = searchString;
 
@@ -77,7 +80,16 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            return View(movie);
+            var revs = from r in _context.Review select r;
+            ICollection<Review>  reviews = revs.Where(r => r.MovieId == id).ToList();
+      
+            MovieReviewsViewModel movie_reviews = new MovieReviewsViewModel
+            {
+                Movie = movie,
+                Reviews = reviews,
+            };
+
+            return View(movie_reviews);
         }
 
         // GET: Movies/Create
