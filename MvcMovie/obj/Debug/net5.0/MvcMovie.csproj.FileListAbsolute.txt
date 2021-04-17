@@ -319,3 +319,8 @@ C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie
 C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie\bin\Debug\net5.0\X.PagedList.dll
 C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
 C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie\bin\Debug\net5.0\X.PagedList.Web.Common.dll
+C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie\obj\Debug\net5.0\Razor\Views\Reviews\Create.cshtml.g.cs
+C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie\obj\Debug\net5.0\Razor\Views\Reviews\Delete.cshtml.g.cs
+C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie\obj\Debug\net5.0\Razor\Views\Reviews\Details.cshtml.g.cs
+C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie\obj\Debug\net5.0\Razor\Views\Reviews\Edit.cshtml.g.cs
+C:\Users\madal\OneDrive\Desktop\roweb\Movie-collection-ASP.NET-Core-MVC\MvcMovie\obj\Debug\net5.0\Razor\Views\Reviews\Index.cshtml.g.cs
