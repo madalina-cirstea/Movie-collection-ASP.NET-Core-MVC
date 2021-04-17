@@ -19,10 +19,29 @@ namespace MvcMovie.Controllers
             _context = context;
         }
 
-        // GET: Movies
+        /*// GET: Movies
         public async Task<IActionResult> Index()
         {
             return View(await _context.Movie.ToListAsync());
+        }*/
+
+        // GET: Movies
+        public async Task<IActionResult> Index(string sortOrder)
+        {
+            ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Title_desc" : "";
+            ViewData["ReleaseDateSortParm"] = sortOrder == "ReleaseDate" ? "ReleaseDate_desc" : "ReleaseDate";
+
+            IQueryable<Movie> movies = from m in _context.Movie select m;
+
+            movies = sortOrder switch
+            {
+                "Title_desc" => movies.OrderByDescending(s => s.Title),
+                "ReleaseDate" => movies.OrderBy(s => s.ReleaseDate),
+                "ReleaseDate_desc" => movies.OrderByDescending(s => s.ReleaseDate),
+                _ => movies.OrderBy(s => s.Title),
+            };
+
+            return View(await movies.AsNoTracking().ToListAsync());
         }
 
         // GET: Movies/Details/5

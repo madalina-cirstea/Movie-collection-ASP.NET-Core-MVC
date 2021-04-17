@@ -9,6 +9,7 @@ namespace MvcMovie.Models
 
         public string Title { get; set; }
 
+        [Display(Name = "Release date")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
